@@ -20,10 +20,10 @@ use App\Http\Controllers\UserController;
 //     return $request->user();
 // });
 
-Route::prefix('user')->group(function () {
-    Route::patch('/update', [UserController::class, 'update']);
-    Route::patch('/update-password', [UserController::class, 'changePassword']);
-});
+// Route::prefix('user')->group(function () {
+//     Route::patch('/update', [UserController::class, 'update']);
+//     Route::patch('/update-password', [UserController::class, 'changePassword']);
+// });
 
 Route::post('/login', [AuthController::class, 'login']);
 
