@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::prefix('user')->group(function () {
+    Route::patch('/update', [UserController::class, 'update']);
+    Route::patch('/update-password', [UserController::class, 'changePassword']);
+});
+
+Route::post('/login', [AuthController::class, 'login']);
+
+Route::middleware(['auth:api', 'role:Admin'])->group(function () {
+    
+    Route::post('/user', [UserController::class, 'index']);
 });
