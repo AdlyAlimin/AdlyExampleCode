@@ -69,6 +69,7 @@
                 </div>
             </nav>
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                @include('flash-message')
                 <div class="row g-3 mt-3">
                     <div class="col-md-12 col-lg-12">
                         <h4 class="mb-3">User Detail</h4>
