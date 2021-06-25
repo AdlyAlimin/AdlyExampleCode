@@ -1,6 +1,1 @@
-Code for Technical Test
-
-
-Check available route using:
-
-php artisan route:list
+Example of my code
